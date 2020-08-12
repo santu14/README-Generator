@@ -1,0 +1,23 @@
+{
+  "name": "readme-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/santu14/README-Generator.git"
+  },
+  "author": "Santiago Solana",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/santu14/README-Generator/issues"
+  },
+  "homepage": "https://github.com/santu14/README-Generator#readme",
+  "dependencies": {
+    "inquirer": "^7.3.3",
+    "util": "^0.12.3"
+  }
+}
