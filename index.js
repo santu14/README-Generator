@@ -9,8 +9,13 @@ function promptUser() {
     return inquirer.prompt([
         {
             type: "input",
+            name: "name",
+            message: "Enter your name: "
+        },
+        {
+            type: "input",
             name: "title",
-            message: "What is the title of your repo/app?"
+            message: "Enter the title of your application or program: "
         },
         {
             type: "input",
@@ -125,8 +130,8 @@ const selectedLicenseInfo = (answers) => {
     // Switch case to return corresponding badge of selected license
     switch(answers.license){
         case 'Apache license 2.0':
-            return   ` 
-            Copyright [2020] [name of copyright owner]
+            return ` 
+            Copyright 2020 ${answers.name}
             Licensed under the Apache License, Version 2.0 (the "License");
             you may not use this file except in compliance with the License.
             You may obtain a copy of the License at
@@ -137,14 +142,15 @@ const selectedLicenseInfo = (answers) => {
             distributed under the License is distributed on an "AS IS" BASIS,
             WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
             See the License for the specific language governing permissions and
-            limitations under the License.`;
+            limitations under the License.
+            `;
         case 'Artistic license 2.0':
             return `
             Licenced under Artistic license 2.0 
-            Everyone is permitted to copy and distribute verbatim copies of this license document, but changing it is not allowed.`;
+            Everyone is permitted to copy and distribute verbatim copies of this license document, but changing it is not allowed.
+            `;
         case 'Boost Software License 1.0':
             return `
-            
             Boost Software License - Version 1.0 - August 17th, 2003
 
             Permission is hereby granted, free of charge, to any person or organization
@@ -170,7 +176,7 @@ const selectedLicenseInfo = (answers) => {
             DEALINGS IN THE SOFTWARE.`;
         case 'BSD 2-clause "Simplified" license':
             return `
-                        Copyright 2020 
+                        Copyright 2020 ${answers.name}
 
             Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
 
@@ -178,9 +184,11 @@ const selectedLicenseInfo = (answers) => {
 
             2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
 
-            THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.`;
+            THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+        `;
         case 'BSD 3-clause license':
-            return `Copyright <YEAR> <COPYRIGHT HOLDER>
+            return `
+                        Copyright 2020 ${answers.name}
 
             Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
             
@@ -190,25 +198,28 @@ const selectedLicenseInfo = (answers) => {
             
             3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
             
-            THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.`;
+            THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+            `;
         case 'Creative Commons Zero v1.0 Universal':
             return `
                         No Copyright
             The person who associated a work with this deed has dedicated the work to the public domain by waiving all of his or her rights to the work worldwide under copyright law, including all related and neighboring rights, to the extent allowed by law.
 
-            You can copy, modify, distribute and perform the work, even for commercial purposes, all without asking permission. See Other Information below.`;
+            You can copy, modify, distribute and perform the work, even for commercial purposes, all without asking permission. See Other Information below.
+            `;
                     case 'Creative Commons Attribution 4.0':
             return `
                         You are free to:
             Share — copy and redistribute the material in any medium or format
             Adapt — remix, transform, and build upon the material
-            for any purpose, even commercially.`;
+            for any purpose, even commercially.
+            `;
                     case 'Do What The F*ck You Want To Public License':
             return `
                         DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE 
                                 Version 2, December 2004 
 
-            Copyright (C) 2004 Sam Hocevar <sam@hocevar.net> 
+            Copyright (C) 2020 ${answers.name} 
 
             Everyone is permitted to copy and distribute verbatim or modified 
             copies of this license document, and changing it is allowed as long 
@@ -224,7 +235,7 @@ const selectedLicenseInfo = (answers) => {
             THE ACCOMPANYING PROGRAM IS PROVIDED UNDER THE TERMS OF THIS ECLIPSE PUBLIC LICENSE ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THE PROGRAM CONSTITUTES RECIPIENT'S ACCEPTANCE OF THIS AGREEMENT.`;
         case 'GNU Affero General Public License v3.0':
             return `
-                    Copyright (C) <year>  <name of author>
+                    Copyright (C) 2020 ${answers.name}
 
             This program is free software: you can redistribute it and/or modify
             it under the terms of the GNU Affero General Public License as
@@ -240,7 +251,7 @@ const selectedLicenseInfo = (answers) => {
             along with this program.  If not, see <https://www.gnu.org/licenses/>.`;
         case 'GNU General Public License v2.0':
             return `
-                        Copyright (C) yyyy  name of author
+                        Copyright (C) 2020  ${answers.name}
 
             This program is free software; you can redistribute it and/or
             modify it under the terms of the GNU General Public License
@@ -258,7 +269,7 @@ const selectedLicenseInfo = (answers) => {
             ;
         case 'GNU General Public License v3.0':
             return `
-                    Copyright (C) <year>  <name of author>
+                    Copyright (C) 2020  ${answers.name}
 
             This program is free software: you can redistribute it and/or modify
             it under the terms of the GNU General Public License as published by
@@ -278,12 +289,12 @@ const selectedLicenseInfo = (answers) => {
             Everyone is permitted to copy and distribute verbatim copies of this license document, but changing it is not allowed.`;
         case 'ISC':
             return `
-                        Copyright <YEAR> <OWNER>
+                        Copyright 2020  ${answers.name}
 
             Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.`;
         case 'MIT':
             return `
-                        Copyright <YEAR> <COPYRIGHT HOLDER>
+                        Copyright 2020  ${answers.name}
 
             Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
@@ -295,7 +306,7 @@ const selectedLicenseInfo = (answers) => {
             return 'This Font Software is licensed under the SIL Open Font License, Version 1.1.';
         case 'The Unlicense':
             return `
-                        This is free and unencumbered software released into the public domain.
+            This is free and unencumbered software released into the public domain.
 
             Anyone is free to copy, modify, publish, use, compile, sell, or
             distribute this software, either in source code form or as a compiled
@@ -321,7 +332,7 @@ const selectedLicenseInfo = (answers) => {
             For more information, please refer to <http://unlicense.org/>`;
         case 'zLib License':
             return `
-                        Copyright (c) <year> <copyright holders>
+                        Copyright (c) 2020  ${answers.name}
 
             This software is provided 'as-is', without any express or implied warranty. In no event will the authors be held liable for any damages arising from the use of this software.
 
@@ -363,7 +374,7 @@ ${answers.test}
 ## Questions
 Please direct any questions to: ${answers.email}
 ---
-Github: ${answers.github}
+Github: [${answers.github}](https://github.com/${answers.github})
 
 ## License
 ${selectedLicenseInfo(answers)}
@@ -377,7 +388,7 @@ promptUser()
     .then(function(answers) {
         const readme = readmeText(answers);
         // create README file with the readmeText
-        return writeFileAsync("README.md", readme);
+        return writeFileAsync(`${answers.title}-README.md`, readme);
     })
     .catch(function(err) {
         console.log(err);
