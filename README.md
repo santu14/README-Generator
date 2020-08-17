@@ -9,3 +9,4 @@ This aplication was created using Javascript, Node.js, and inquirer npm.
 - Once finished your README file should populate within this directory.
 
 # Demo
+![README generator demo](image/demo.gif)
