@@ -24,9 +24,11 @@ No guidelines for contribution but you are welcome to expand or do as you please
 # Test
 No test required or used in this application
 # Questions
----
-Please direct any questions to: santiago.sjs@gmail.com
-Github: [santu14](https://github.com/santu14)
+If you have any questions or would like to contact me feel free to reach me at:
+- Email: santiago.sjs@gmail.com
+- Github: [santu14](https://github.com/santu14)
+
+
 
 ## License
 

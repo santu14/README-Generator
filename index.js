@@ -374,9 +374,9 @@ ${answers.contributing}
 # Test
 ${answers.test}
 # Questions
-Please direct any questions to: ${answers.email}
----
-Github: [${answers.github}](https://github.com/${answers.github})
+If you have any questions or would like to contact me feel free to reach me at:
+- Email: ${answers.email}
+- Github: [${answers.github}](https://github.com/${answers.github})
 
 ## License
 ${selectedLicenseInfo(answers)}
